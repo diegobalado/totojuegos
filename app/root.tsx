@@ -1,4 +1,3 @@
-import type { MetaFunction } from "@vercel/remix";
 import {
   Links,
   LiveReload,
@@ -8,6 +7,14 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
+import type { MetaFunction } from "@vercel/remix";
+
+import type { LinksFunction } from "@remix-run/react/dist/routeModules";
+import stylesheet from "~/tailwind.css";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",

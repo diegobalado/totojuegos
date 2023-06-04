@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.min-w-18r {
+    min-width: 18rem;
+}
