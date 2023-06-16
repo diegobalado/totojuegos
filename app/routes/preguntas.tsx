@@ -5,11 +5,10 @@ import Button from "~/components/Button";
 import InputGroup from "~/components/InputGroup";
 import MultipleChoice from "~/components/MultipleChoice";
 
-const supabaseUrl = process.env.SUPABASE_URL || "";
-const supabaseKey = process.env.SUPABASE_KEY || "";
-const supabase = createClient(supabaseUrl, supabaseKey);
-
 export const loader = async ({}) => {
+  const supabaseUrl = process.env.SUPABASE_URL || "";
+  const supabaseKey = process.env.SUPABASE_KEY || "";
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data } = await supabase.from("pregunta_random").select();
 
   return { data };
