@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import shuffle from "lodash/shuffle";
 
 function Choice({
   active,
   onChange,
   value,
-  children
+  children,
 }: {
   active: boolean;
   onChange: any;
@@ -34,18 +35,25 @@ function Choice({
 export default function MultipleChoice({
   options,
   answer,
-  onResponse
+  onResponse,
 }: {
   options: Array<string>;
   answer: string;
   onResponse: (arg0: boolean) => void;
 }) {
   const [result, setResult] = useState("");
+  const [questions, setQuestions] = useState([""]);
   const success = result === answer;
 
+  useEffect(() => {
+    const newArray = shuffle(options);
+    setQuestions(newArray);
+  }, [options]);
+
+  console.log({ questions, options });
   return (
     <div className="flex flex-col w-full items-center">
-      {options.map((option, index) => (
+      {questions.map((option, index) => (
         <Choice
           key={`${option}-${index}`}
           value={option}
