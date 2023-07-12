@@ -21,6 +21,7 @@
     "eslint-config-prettier": "^8.8.0",
     "isbot": "latest",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.259.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
