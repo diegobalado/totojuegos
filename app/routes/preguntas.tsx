@@ -4,32 +4,34 @@ import { Suspense, useEffect, useState } from "react";
 import Button from "~/components/Button";
 import InputGroup from "~/components/InputGroup";
 import MultipleChoice from "~/components/MultipleChoice";
+import preguntas from "../../data/preguntas.json";
+const MAX_OPTIONS = 2;
 
-export const loader = async ({}) => {
-  const supabaseUrl = process.env.SUPABASE_URL || "";
-  const supabaseKey = process.env.SUPABASE_KEY || "";
-  const supabase = createClient(supabaseUrl, supabaseKey);
-  const { data } = await supabase.from("pregunta_random").select();
+export const loader = () => {
+  const newOptions = Array.from({ length: MAX_OPTIONS }, (_, index) => {
+    const rndInt = Math.floor(Math.random() * (preguntas.length - 1)) + 1;
+    const newOption = preguntas.splice(rndInt, 1)[0];
+    return newOption;
+  });
 
-  return { data };
+  return { data: newOptions };
 };
 
 export default function Preguntas() {
+  const [currentItem, setCurrentItem] = useState(0);
   const [success, setSuccess] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
   const navigate = useNavigate();
   const { data } = useLoaderData();
-  const item = data[0];
+  const item = data?.[0];
   const message = success ? "Buenaaa" : "Dale, mamert@, andá a estudiar";
-
-  const Component = () =>
-    item.tipo === "multiple_choice" ? MultipleChoice : <div></div>;
-
-  console.log({ success, showAlert });
+  console.log({ data, currentItem, showResult, current: data[currentItem] });
 
   return (
-    <>
-      <div className="absolute h-96 w-full -z-10">
+    <div>
+      {/* <div className="absolute h-96 w-full -z-10">
         <svg viewBox="0 0 500 200">
           <path
             d="M 0 50 C 150 150 300 0 500 80 L 500 0 L 0 0"
@@ -46,9 +48,9 @@ export default function Preguntas() {
             opacity="0.5"
           ></path>
         </svg>
-      </div>
+      </div> */}
       {showAlert && (
-        <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full">
+        <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full z-20">
           <div className="alert w-80 shadow-lg flex flex-col content-between top-1/4">
             <div>
               <h3 className="font-bold">{message}</h3>
@@ -56,11 +58,12 @@ export default function Preguntas() {
             <button
               className="btn btn-sm btn-accent text-white"
               onClick={() => {
-                setTimeout(() => {
-                  setSuccess(false);
-                  setShowAlert(false);
-                  navigate(".", { replace: true });
-                }, 500);
+                setShowAlert(false);
+                if (currentItem < MAX_OPTIONS - 1) {
+                  setCurrentItem(currentItem + 1);
+                } else {
+                  setShowResult(true);
+                }
               }}
             >
               Siguiente pregunta
@@ -68,28 +71,40 @@ export default function Preguntas() {
           </div>
         </div>
       )}
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="absolute top-0 pt-1 pl-1 text-2xl mt-6 text-gray-900 uppercase font-black">
-          Bienvenid@ a TotoJuegos!!
-        </h1>
-        <h1 className="absolute top-0 pt-0 text-2xl mt-6 text-green-100 uppercase font-black">
-          Bienvenid@ a TotoJuegos!!
-        </h1>
-        <div className="bg-gray-100 border-2 border-gray-300 mt-44 mb-4 p-4 rounded-xl w-auto">
-          {item.pregunta}
+      {showResult ? (
+        <div className="fixed flex items-center justify-center w-full h-full">
+          {`
+          Bien ahii!
+          Acertaste ${score}
+        `}
         </div>
-        <MultipleChoice
-          options={[item.opcion_1, item.opcion_2, item.opcion_3, item.opcion_4]}
-          answer={item.respuesta}
-          onResponse={(response) => {
-            setTimeout(() => {
-              console.log({ response });
+      ) : (
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="absolute top-0 pt-1 pl-1 text-2xl mt-6 text-gray-900 uppercase font-black">
+            Bienvenid@ a TotoJuegos!!
+          </h1>
+          <h1 className="absolute top-0 pt-0 text-2xl mt-6 text-green-100 uppercase font-black">
+            Bienvenid@ a TotoJuegos!!
+          </h1>
+          <div className="bg-gray-100 border-2 border-gray-300 mt-44 mb-4 p-4 rounded-xl w-auto">
+            {data[currentItem].pregunta}
+          </div>
+          <MultipleChoice
+            options={[
+              data[currentItem].opcion_1,
+              data[currentItem].opcion_2,
+              data[currentItem].opcion_3,
+              data[currentItem].opcion_4,
+            ]}
+            answer={data[currentItem].respuesta}
+            onResponse={(response) => {
               setSuccess(response);
+              if (response) setScore(score + 1);
               setShowAlert(true);
-            }, 500);
-          }}
-        />
-      </div>
-    </>
+            }}
+          />
+        </div>
+      )}
+    </div>
   );
 }

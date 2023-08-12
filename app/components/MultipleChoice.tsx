@@ -47,10 +47,9 @@ export default function MultipleChoice({
 
   useEffect(() => {
     const newArray = shuffle(options);
-    setQuestions(newArray);
+    setQuestions(options);
   }, [options]);
 
-  console.log({ questions, options });
   return (
     <div className="flex flex-col w-full items-center">
       {questions.map((option, index) => (

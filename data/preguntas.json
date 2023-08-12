@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+
+    "created_at": "2023-06-10T00:17:20.571355+00:00",
+
+    "pregunta": "¿Cuál es la capital de Croacia?",
+
+    "opcion_1": "Madrid",
+
+    "opcion_2": "Buenos Aires",
+
+    "opcion_3": "Zagreb",
+
+    "opcion_4": "Helsinki",
+
+    "respuesta": "Zagreb",
+
+    "tipo": "multiple_choice"
+  },
+  {
+    "id": 2,
+
+    "created_at": "2023-06-10T04:12:49.727275+00:00",
+
+    "pregunta": "¿A qué tipo de comida se le suele poner canela?",
+
+    "opcion_1": "Dulce",
+
+    "opcion_2": "Salada",
+
+    "opcion_3": null,
+
+    "opcion_4": null,
+
+    "respuesta": "Dulce",
+
+    "tipo": "checkbox"
+  },
+
+  {
+    "id": 3,
+
+    "created_at": "2023-06-14T22:41:41.096326+00:00",
+
+    "pregunta": "¿Qué insecto picó a Spiderman?",
+
+    "opcion_1": "Una araña",
+
+    "opcion_2": "Un escarabajo",
+
+    "opcion_3": "Un piojo",
+
+    "opcion_4": "Un escorpión",
+
+    "respuesta": "Una araña",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 4,
+
+    "created_at": "2023-06-14T22:43:28.167897+00:00",
+
+    "pregunta": "¿De qué película es el profesor Snape?",
+
+    "opcion_1": "Spiderman",
+
+    "opcion_2": "Pokemon",
+
+    "opcion_3": "Harry Potter",
+
+    "opcion_4": "Los locos Addams",
+
+    "respuesta": "Harry Potter",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 5,
+
+    "created_at": "2023-06-14T22:44:39.793933+00:00",
+
+    "pregunta": "¿Cómo se llama el traje usado en el aikido?",
+
+    "opcion_1": "Karatashi",
+
+    "opcion_2": "Mandioca",
+
+    "opcion_3": "Aikidoshi",
+
+    "opcion_4": "Osalfishi",
+
+    "respuesta": "Aikidoshi",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 6,
+
+    "created_at": "2023-06-20T14:02:13.404335+00:00",
+
+    "pregunta": "¿Cuántos naipes hay en la baraja española?",
+
+    "opcion_1": "25",
+
+    "opcion_2": "40",
+
+    "opcion_3": "50",
+
+    "opcion_4": "60",
+
+    "respuesta": "50",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 7,
+
+    "created_at": "2023-06-20T14:03:09.176304+00:00",
+
+    "pregunta": "¿Qué animal habita en la Antártida?",
+
+    "opcion_1": "Oso polar",
+
+    "opcion_2": "Pingüino emperador",
+
+    "opcion_3": "Langosta Yeti",
+
+    "opcion_4": "Rinoceronte",
+
+    "respuesta": "Pingüino emperador",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 8,
+
+    "created_at": "2023-07-08T14:06:13.614237+00:00",
+
+    "pregunta": "¿Cómo se llama el creador de este juego?",
+
+    "opcion_1": "Alfredo",
+
+    "opcion_2": "Thiago",
+
+    "opcion_3": "Tiago",
+
+    "opcion_4": "Roberto",
+
+    "respuesta": "Tiago",
+
+    "tipo": "multiple_choice"
+  },
+
+  {
+    "id": 9,
+
+    "created_at": "2023-07-08T14:07:09.660287+00:00",
+
+    "pregunta": "¿En qué país nació el creador de este juego?",
+
+    "opcion_1": "Estados Unidos",
+
+    "opcion_2": "Croacia",
+
+    "opcion_3": "Argentina",
+
+    "opcion_4": "Marruecos",
+
+    "respuesta": "Argentina",
+
+    "tipo": null
+  },
+
+  {
+    "id": 10,
+
+    "created_at": "2023-07-12T00:43:10.841843+00:00",
+
+    "pregunta": "¿En qué año se creó el Minecraft?",
+
+    "opcion_1": "2001",
+
+    "opcion_2": "2011",
+
+    "opcion_3": "2050",
+
+    "opcion_4": "1896",
+
+    "respuesta": "2011",
+
+    "tipo": null
+  },
+
+  {
+    "id": 11,
+
+    "created_at": "2023-07-12T00:44:29.417954+00:00",
+
+    "pregunta": "¿Qué país ganó el mundial de fútbol sub-20 en 2023?",
+
+    "opcion_1": "Italia",
+
+    "opcion_2": "Francia",
+
+    "opcion_3": "Alemania",
+
+    "opcion_4": "Uruguay",
+
+    "respuesta": "Uruguay",
+
+    "tipo": null
+  },
+
+  {
+    "id": 12,
+
+    "created_at": "2023-07-12T00:45:22.979955+00:00",
+
+    "pregunta": "¿Cómo se llama el amigo físico de El eternauta?",
+
+    "opcion_1": "Favalli",
+
+    "opcion_2": "Flitwik",
+
+    "opcion_3": "Mateo",
+
+    "opcion_4": "Juan",
+
+    "respuesta": "Favalli",
+
+    "tipo": null
+  }
+]
