@@ -5,7 +5,7 @@ import Button from "~/components/Button";
 import InputGroup from "~/components/InputGroup";
 import MultipleChoice from "~/components/MultipleChoice";
 import preguntas from "../../data/preguntas.json";
-const MAX_OPTIONS = 2;
+const MAX_OPTIONS = 10;
 
 export const loader = () => {
   const newOptions = Array.from({ length: MAX_OPTIONS }, (_, index) => {
