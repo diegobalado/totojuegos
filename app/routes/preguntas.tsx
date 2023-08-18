@@ -66,7 +66,7 @@ export default function Preguntas() {
         </div>
       )}
       {showResult ? (
-        <div className="fixed flex items-center justify-center w-full h-full">
+        <div className="fixed flex items-center justify-center w-full h-full text-center pt-0 text-2xl mt-6 text-slate-50 uppercase font-black">
           {`
           Bien ahii!
           Acertaste ${score}
