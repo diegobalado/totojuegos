@@ -15,7 +15,7 @@ function Choice({
   if (!children) return null;
 
   return (
-    <div className="flex my-6 w-1/2 justify-center z-10">
+    <div className="flex my-5 w-1/2 justify-center z-10">
       <button
         onClick={() => {
           console.log({ value });

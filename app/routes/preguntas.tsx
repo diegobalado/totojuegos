@@ -74,10 +74,10 @@ export default function Preguntas() {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-center pt-0 text-4xl mt-6 text-slate-50 uppercase font-black">
+          <h1 className="text-center pt-0 text-4xl mt-8 text-slate-50 uppercase font-black">
             Bienvenid@ a TotoJuegos!!
           </h1>
-          <div className="bg-gray-100 border-2 border-gray-300 mt-16 mb-4 p-4 rounded-xl w-auto">
+          <div className="bg-gray-100 border-2 border-gray-300 mt-8 mb-4 p-4 rounded-xl w-auto">
             {data[currentItem].pregunta}
           </div>
           <MultipleChoice
