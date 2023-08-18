@@ -52,7 +52,7 @@ export default function MultipleChoice({
   }, [options]);
 
   return (
-    <div className="flex flex-col w-full items-center">
+    <div className="flex flex-col w-full items-center justify-center grow">
       {questions.map((option, index) => (
         <Choice
           key={`${option}-${index}`}
