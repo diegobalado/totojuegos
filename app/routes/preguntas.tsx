@@ -1,21 +1,8 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
-import { createClient } from "@supabase/supabase-js";
-import { Suspense, useEffect, useState } from "react";
-import Button from "~/components/Button";
-import InputGroup from "~/components/InputGroup";
+import { useNavigate } from "@remix-run/react";
+import { useState } from "react";
 import MultipleChoice from "~/components/MultipleChoice";
 import preguntas from "../../data/preguntas.json";
 const MAX_OPTIONS = 10;
-
-export const loader = () => {
-  const newOptions = Array.from({ length: MAX_OPTIONS }, (_, index) => {
-    const rndInt = Math.floor(Math.random() * (preguntas.length - 1)) + 1;
-    const newOption = preguntas.splice(rndInt, 1)[0];
-    return newOption;
-  });
-
-  return { data: newOptions };
-};
 
 export default function Preguntas() {
   const [currentItem, setCurrentItem] = useState(0);
@@ -24,10 +11,13 @@ export default function Preguntas() {
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const navigate = useNavigate();
-  const { data } = useLoaderData();
+  const data = Array.from({ length: MAX_OPTIONS }, (_, index) => {
+    const rndInt = Math.floor(Math.random() * (preguntas.length - 1)) + 1;
+    const newOption = preguntas.splice(rndInt, 1)[0];
+    return newOption;
+  });
   const item = data?.[0];
   const message = success ? "Buenaaa" : "Dale, mamert@, andá a estudiar";
-  console.log({ data, currentItem, showResult, current: data[currentItem] });
 
   return (
     <div className="h-screen bg-gradient-to-r from-slate-900 to-slate-700 wrapper">
@@ -84,8 +74,8 @@ export default function Preguntas() {
             options={[
               data[currentItem].opcion_1,
               data[currentItem].opcion_2,
-              data[currentItem].opcion_3,
-              data[currentItem].opcion_4,
+              data[currentItem]?.opcion_3,
+              data[currentItem]?.opcion_4,
             ]}
             answer={data[currentItem].respuesta}
             onResponse={(response) => {

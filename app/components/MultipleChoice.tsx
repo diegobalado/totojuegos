@@ -18,7 +18,6 @@ function Choice({
     <div className="flex my-5 w-1/2 justify-center z-10">
       <button
         onClick={() => {
-          console.log({ value });
           onChange(value);
         }}
         value={value}
@@ -38,12 +37,12 @@ export default function MultipleChoice({
   answer,
   onResponse,
 }: {
-  options: Array<string>;
+  options: Array<string | null>;
   answer: string;
   onResponse: (arg0: boolean) => void;
 }) {
   const [result, setResult] = useState("");
-  const [questions, setQuestions] = useState([""]);
+  const [questions, setQuestions] = useState<(string | null)[]>([null]);
   const success = result === answer;
 
   useEffect(() => {
@@ -53,19 +52,21 @@ export default function MultipleChoice({
 
   return (
     <div className="flex flex-col w-full items-center justify-center grow">
-      {questions.map((option, index) => (
-        <Choice
-          key={`${option}-${index}`}
-          value={option}
-          active={result === option}
-          onChange={() => {
-            setResult(option);
-            onResponse(answer === option);
-          }}
-        >
-          {option}
-        </Choice>
-      ))}
+      {questions?.map((option, index) => {
+        return !option ? null : (
+          <Choice
+            key={`${option}-${index}`}
+            value={option}
+            active={result === option}
+            onChange={() => {
+              setResult(option);
+              onResponse(answer === option);
+            }}
+          >
+            {option}
+          </Choice>
+        );
+      })}
     </div>
   );
 }
