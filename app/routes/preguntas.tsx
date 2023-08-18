@@ -2,9 +2,9 @@ import { useNavigate } from "@remix-run/react";
 import { useState } from "react";
 import MultipleChoice from "~/components/MultipleChoice";
 import preguntas from "../../data/preguntas.json";
-const MAX_OPTIONS = 10;
 
 export default function Preguntas() {
+  const MAX_OPTIONS = 10;
   const [currentItem, setCurrentItem] = useState(0);
   const [success, setSuccess] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
