@@ -72,8 +72,8 @@ export default function Preguntas() {
           </div>
           <MultipleChoice
             options={[
-              data[currentItem].opcion_1,
-              data[currentItem].opcion_2,
+              data[currentItem]?.opcion_1,
+              data[currentItem]?.opcion_2,
               data[currentItem]?.opcion_3,
               data[currentItem]?.opcion_4,
             ]}
