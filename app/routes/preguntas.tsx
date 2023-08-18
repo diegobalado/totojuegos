@@ -30,7 +30,7 @@ export default function Preguntas() {
   console.log({ data, currentItem, showResult, current: data[currentItem] });
 
   return (
-    <div>
+    <div className="h-screen bg-gradient-to-r from-slate-900 to-slate-700">
       {/* <div className="absolute h-96 w-full -z-10">
         <svg viewBox="0 0 500 200">
           <path
@@ -80,13 +80,10 @@ export default function Preguntas() {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
-          <h1 className="absolute top-0 pt-1 pl-1 text-2xl mt-6 text-gray-900 uppercase font-black">
+          <h1 className="text-center pt-0 text-4xl mt-6 text-slate-50 uppercase font-black">
             Bienvenid@ a TotoJuegos!!
           </h1>
-          <h1 className="absolute top-0 pt-0 text-2xl mt-6 text-green-100 uppercase font-black">
-            Bienvenid@ a TotoJuegos!!
-          </h1>
-          <div className="bg-gray-100 border-2 border-gray-300 mt-44 mb-4 p-4 rounded-xl w-auto">
+          <div className="bg-gray-100 border-2 border-gray-300 mt-16 mb-4 p-4 rounded-xl w-auto">
             {data[currentItem].pregunta}
           </div>
           <MultipleChoice

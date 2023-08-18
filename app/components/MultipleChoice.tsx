@@ -22,8 +22,9 @@ function Choice({
           onChange(value);
         }}
         value={value}
-        className={`btn btn-md btn-accent w-60 text-white ${
-          !active && "btn-outline hover:text-white"
+        className={`uppercase font-black rounded-md px-4 py-2 bg-gradient-to-r from-lime-700 to-lime-600 w-60 text-white transition-transform ${
+          !active &&
+          "hover:text-white hover:scale-110 hover:transition-transform"
         }`}
       >
         {value}
