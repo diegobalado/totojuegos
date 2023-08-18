@@ -30,25 +30,19 @@ export default function Preguntas() {
   console.log({ data, currentItem, showResult, current: data[currentItem] });
 
   return (
-    <div className="h-screen bg-gradient-to-r from-slate-900 to-slate-700">
-      {/* <div className="absolute h-96 w-full -z-10">
-        <svg viewBox="0 0 500 200">
-          <path
-            d="M 0 50 C 150 150 300 0 500 80 L 500 0 L 0 0"
-            fill="rgb(57, 27, 112)"
-          ></path>
-          <path
-            d="M 0 50 C 150 150 330 -30 500 50 L 500 0 L 0 0"
-            fill="#0E7452"
-            opacity="0.8"
-          ></path>
-          <path
-            d="M 0 50 C 215 150 250 0 500 100 L 500 0 L 0 0"
-            fill="#0E7452"
-            opacity="0.5"
-          ></path>
-        </svg>
-      </div> */}
+    <div className="h-screen bg-gradient-to-r from-slate-900 to-slate-700 wrapper">
+      <div className="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       {showAlert && (
         <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full z-20">
           <div className="alert w-80 shadow-lg flex flex-col content-between top-1/4">
