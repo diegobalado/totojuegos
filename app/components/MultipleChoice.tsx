@@ -43,16 +43,12 @@ export default function MultipleChoice({
 }) {
   const [result, setResult] = useState("");
   const [questions, setQuestions] = useState<(string | null)[]>([null]);
-  const [shuffling, setShuffling] = useState(true);
   const success = result === answer;
 
   useEffect(() => {
     const newArray = shuffle(options);
     setQuestions(options);
-    setShuffling(false);
   }, [options]);
-
-  if (shuffling) return null;
 
   return (
     <div className="flex flex-col w-full items-center justify-center grow">

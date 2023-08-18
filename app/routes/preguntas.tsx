@@ -1,4 +1,3 @@
-import { useNavigate } from "@remix-run/react";
 import { useState } from "react";
 import MultipleChoice from "~/components/MultipleChoice";
 import preguntas from "../../data/preguntas.json";
@@ -10,10 +9,10 @@ export default function Preguntas() {
   const [showAlert, setShowAlert] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
-  const navigate = useNavigate();
+  const pregs = [...preguntas];
   const data = Array.from({ length: MAX_OPTIONS }, (_, index) => {
-    const rndInt = Math.floor(Math.random() * (preguntas.length - 1)) + 1;
-    const newOption = preguntas.splice(rndInt, 1)[0];
+    const rndInt = Math.floor(Math.random() * (pregs?.length - 1)) + 1;
+    const newOption = pregs?.splice(rndInt, 1)[0];
     return newOption;
   });
   const item = data?.[0];
@@ -68,7 +67,7 @@ export default function Preguntas() {
             Bienvenid@ a TotoJuegos!!
           </h1>
           <div className="bg-gray-100 border-2 border-gray-300 mt-6 p-4 rounded-xl w-auto text-center">
-            {data[currentItem].pregunta}
+            {data[currentItem]?.pregunta}
           </div>
           <MultipleChoice
             options={[
@@ -77,7 +76,7 @@ export default function Preguntas() {
               data[currentItem]?.opcion_3,
               data[currentItem]?.opcion_4,
             ]}
-            answer={data[currentItem].respuesta}
+            answer={data[currentItem]?.respuesta}
             onResponse={(response) => {
               setSuccess(response);
               if (response) setScore(score + 1);
