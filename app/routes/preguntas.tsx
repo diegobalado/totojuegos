@@ -7,7 +7,7 @@ const MAX_OPTIONS = 10;
 
 export function loader() {
   const data = Array.from({ length: MAX_OPTIONS }, (_, index) => {
-    const rndInt = Math.floor(Math.random() * preguntas?.length);
+    const rndInt = Math.floor(Math.random() * preguntas?.length - 1);
     return preguntas.splice(rndInt, 1)[0];
   });
 
