@@ -40,13 +40,13 @@ export default function Preguntas() {
         <div></div>
       </div>
       {showAlert && (
-        <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full">
+        <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full z-10">
           <div className="alert w-80 shadow-lg flex flex-col content-between top-1/4">
             <div>
               <h3 className="font-bold">{message}</h3>
             </div>
             <button
-              className="btn btn-sm btn-accent text-white"
+              className="uppercase font-black rounded-md px-4 py-2 bg-gradient-to-r from-lime-700 to-lime-600 w-60 text-white transition-transform hover:scale-110 hover:transition-transform"
               onClick={() => {
                 setShowAlert(false);
                 if (currentItem < MAX_OPTIONS - 1) {
@@ -69,7 +69,7 @@ export default function Preguntas() {
         `}
         </div>
       ) : (
-        <div className="flex flex-col justify-start items-center h-screen relative">
+        <div className="flex flex-col justify-start items-center h-screen relative z-0">
           <h1 className="text-center pt-0 text-2xl mt-6 text-slate-50 uppercase font-black">
             Bienvenid@ a TotoJuegos!!
           </h1>
