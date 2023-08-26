@@ -53,9 +53,9 @@ export default function Preguntas() {
         }z-10`}
       >
         <div
-          className={`alert w-80 shadow-lg flex flex-col content-between top-1/4 scale-${
-            showAlert ? "100" : "0"
-          } transition-transform duration-300 z-20`}
+          className={`alert w-80 shadow-lg flex flex-col content-between top-1/4 ${
+            showAlert && "animate-jump-in animate-duration-300"
+          }  z-20`}
         >
           <div>
             <h3 className="font-bold">{message}</h3>

@@ -1,15 +1,15 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 export default {
-  content: ['./app/**/*.{js,jsx,ts,tsx}'],
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       theme: {
         minWidth: {
-          '30r': '30rem',
-        }
-      }
+          "30r": "30rem",
+        },
+      },
     },
   },
-  plugins: [require("daisyui")],
-} satisfies Config
+  plugins: [require("daisyui"), require("tailwindcss-animated")],
+} satisfies Config;
