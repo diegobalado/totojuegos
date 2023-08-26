@@ -23,7 +23,14 @@ export default function Preguntas() {
   const { data } = useLoaderData();
   const item = data?.[currentItem];
 
-  const message = success ? "Buenaaa" : "Dale, mamert@, andá a estudiar";
+  const message = success ? (
+    "Buenaaa!!! 🎉🎉🎉"
+  ) : (
+    <div>
+      <div>Dale, mamert@, andá a estudiar</div>
+      <div className="flex justify-center">💩💩💩</div>
+    </div>
+  );
   console.log({ data });
   return (
     <div className="h-screen bg-gradient-to-r from-slate-900 to-slate-700 wrapper">
@@ -39,28 +46,36 @@ export default function Preguntas() {
         <div></div>
         <div></div>
       </div>
-      {showAlert && (
-        <div className="fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full z-10">
-          <div className="alert w-80 shadow-lg flex flex-col content-between top-1/4">
-            <div>
-              <h3 className="font-bold">{message}</h3>
-            </div>
-            <button
-              className="uppercase font-black rounded-md px-4 py-2 bg-gradient-to-r from-lime-700 to-lime-600 w-60 text-white transition-transform hover:scale-110 hover:transition-transform"
-              onClick={() => {
-                setShowAlert(false);
-                if (currentItem < MAX_OPTIONS - 1) {
-                  setCurrentItem(currentItem + 1);
-                } else {
-                  setShowResult(true);
-                }
-              }}
-            >
-              Siguiente pregunta
-            </button>
+
+      <div
+        className={`fixed flex items-center justify-center bg-slate-800 bg-opacity-60 w-full h-full ${
+          !showAlert ? "-" : ""
+        }z-10`}
+      >
+        <div
+          className={`alert w-80 shadow-lg flex flex-col content-between top-1/4 scale-${
+            showAlert ? "100" : "0"
+          } transition-transform duration-300 z-20`}
+        >
+          <div>
+            <h3 className="font-bold">{message}</h3>
           </div>
+          <button
+            className="uppercase font-black rounded-md px-4 py-2 bg-gradient-to-r from-lime-700 to-lime-600 w-60 text-white transition-transform hover:scale-110 hover:transition-transform"
+            onClick={() => {
+              setShowAlert(false);
+              if (currentItem < MAX_OPTIONS - 1) {
+                setCurrentItem(currentItem + 1);
+              } else {
+                setShowResult(true);
+              }
+            }}
+          >
+            Siguiente pregunta
+          </button>
         </div>
-      )}
+      </div>
+
       {showResult ? (
         <div className="fixed flex items-center justify-center w-full h-full text-center pt-0 text-2xl mt-6 text-slate-50 uppercase font-black">
           {`
