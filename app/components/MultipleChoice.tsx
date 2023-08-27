@@ -6,16 +6,18 @@ function Choice({
   onChange,
   value,
   children,
+  className,
 }: {
   active: boolean;
   onChange: any;
   value: string;
   children: string;
+  className?: string;
 }) {
   if (!children) return null;
 
   return (
-    <div className="flex my-5 w-1/2 justify-center z-10">
+    <div className={`flex my-5 w-1/2 justify-center z-10 ${className}`}>
       <button
         onClick={() => {
           onChange(value);
@@ -62,6 +64,7 @@ export default function MultipleChoice({
               setResult(option);
               onResponse(answer === option);
             }}
+            className={`${index === 0 && "-mt-8"}`}
           >
             {option}
           </Choice>
